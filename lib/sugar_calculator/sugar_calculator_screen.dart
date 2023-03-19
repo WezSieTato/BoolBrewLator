@@ -13,21 +13,23 @@ class SugarCalculatorScreen extends StatelessWidget {
         padding: EdgeInsets.all(16.0),
         child: BlocProvider(
           create: (context) => SugarCalculatorBloc(),
-          child: Column(
-            children: [
-              Text('Oblicz, ile produktu musisz dodać, aby uzyskać X g cukru.'),
-              ElevatedButton(
-                onPressed: () {
-                  context.read<SugarCalculatorBloc>().add(SugarCalculatorEvent.calculate);
-                },
-                child: Text('Oblicz'),
-              ),
-              BlocBuilder<SugarCalculatorBloc, double>(
-                builder: (context, state) {
-                  return Text('Wynik: ${state.toStringAsFixed(2)} ml');
-                },
-              ),
-            ],
+          child: Builder(
+            builder: (newContext) => Column(
+              children: [
+                Text('Oblicz, ile produktu musisz dodać, aby uzyskać X g cukru.'),
+                ElevatedButton(
+                  onPressed: () {
+                    newContext.read<SugarCalculatorBloc>().add(SugarCalculatorEvent.calculate);
+                  },
+                  child: Text('Oblicz'),
+                ),
+                BlocBuilder<SugarCalculatorBloc, double>(
+                  builder: (context, state) {
+                    return Text('Wynik: ${state.toStringAsFixed(2)} ml');
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
