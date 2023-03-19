@@ -23,7 +23,7 @@ class _SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Kalkulator cukru'),
+        title: Text('Kalkulator Cukru'),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -44,13 +44,15 @@ class _SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
                 double sugarContent = double.parse(sugarContentController.text);
                 double targetSugar = double.parse(targetSugarController.text);
 
-                final bloc = SugarCalculatorBloc(
-                  sugarContent: sugarContent,
-                  targetSugar: targetSugar,
+                final bloc = SugarCalculatorBloc();
+                bloc.add(
+                  CalculateSugarEvent(
+                    sugarContent: sugarContent,
+                    targetSugar: targetSugar,
+                  ),
                 );
-                bloc.add(SugarCalculatorEvent.calculate);
 
-                // Przechwycenie wyniku
+                // Capture the result
                 bloc.stream.listen((calculatedResult) {
                   setState(() {
                     result = calculatedResult;
@@ -59,7 +61,8 @@ class _SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
               },
               child: Text('Oblicz'),
             ),
-            if (result != null) Text('Wynik: ${result!.toStringAsFixed(2)} ml'),
+            if (result != null)
+              Text('Wynik: ${result!.toStringAsFixed(2)} ml'),
           ],
         ),
       ),

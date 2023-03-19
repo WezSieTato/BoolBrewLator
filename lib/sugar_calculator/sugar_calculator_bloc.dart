@@ -1,19 +1,18 @@
 import 'package:bloc/bloc.dart';
 
-enum SugarCalculatorEvent { calculate }
-
-class SugarCalculatorBloc extends Bloc<SugarCalculatorEvent, double> {
+// Define a new event
+class CalculateSugarEvent {
   final double sugarContent;
   final double targetSugar;
 
-  SugarCalculatorBloc({required this.sugarContent, required this.targetSugar})
-      : super(0) {
-    on<SugarCalculatorEvent>((event, emit) {
-      if (event == SugarCalculatorEvent.calculate) {
-        // Obliczenia
-        final result = (targetSugar * 100) / sugarContent;
-        emit(result);
-      }
+  CalculateSugarEvent({required this.sugarContent, required this.targetSugar});
+}
+
+class SugarCalculatorBloc extends Bloc<CalculateSugarEvent, double> {
+  SugarCalculatorBloc() : super(0) {
+    on<CalculateSugarEvent>((event, emit) {
+      final result = (event.targetSugar * 100) / event.sugarContent;
+      emit(result);
     });
   }
 }
