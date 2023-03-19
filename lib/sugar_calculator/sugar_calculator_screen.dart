@@ -5,14 +5,14 @@ import 'sugar_calculator_bloc.dart';
 class SugarCalculatorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => SugarCalculatorBloc(),
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text('Kalkulator cukru'),
-        ),
-        body: Padding(
-          padding: EdgeInsets.all(16.0),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Kalkulator cukru'),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: BlocProvider(
+          create: (context) => SugarCalculatorBloc(),
           child: Column(
             children: [
               Text('Oblicz, ile produktu musisz dodać, aby uzyskać X g cukru.'),
