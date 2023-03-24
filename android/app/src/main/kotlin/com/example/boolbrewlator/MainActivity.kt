@@ -1,4 +1,4 @@
-package com.example.bulbrewlator
+package com.example.boolbrewlator
 
 import io.flutter.embedding.android.FlutterActivity
 

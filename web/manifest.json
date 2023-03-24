@@ -1,6 +1,6 @@
 {
-    "name": "bulbrewlator",
-    "short_name": "bulbrewlator",
+    "name": "boolbrewlator",
+    "short_name": "boolbrewlator",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
