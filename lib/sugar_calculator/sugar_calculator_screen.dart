@@ -13,10 +13,40 @@ class _SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
   double? result;
 
   @override
+  void initState() {
+    super.initState();
+    sugarContentController.addListener(calculate);
+    targetSugarController.addListener(calculate);
+  }
+
+  @override
   void dispose() {
     sugarContentController.dispose();
     targetSugarController.dispose();
     super.dispose();
+  }
+
+  void calculate() {
+    if (sugarContentController.text.isNotEmpty &&
+        targetSugarController.text.isNotEmpty) {
+      double sugarContent = double.parse(sugarContentController.text);
+      double targetSugar = double.parse(targetSugarController.text);
+
+      final bloc = SugarCalculatorBloc();
+      bloc.add(
+        CalculateSugarEvent(
+          sugarContent: sugarContent,
+          targetSugar: targetSugar,
+        ),
+      );
+
+      // Capture the result
+      bloc.stream.listen((calculatedResult) {
+        setState(() {
+          result = calculatedResult;
+        });
+      });
+    }
   }
 
   @override
@@ -38,28 +68,6 @@ class _SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
               controller: targetSugarController,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(labelText: 'Docelowa ilość cukru'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                double sugarContent = double.parse(sugarContentController.text);
-                double targetSugar = double.parse(targetSugarController.text);
-
-                final bloc = SugarCalculatorBloc();
-                bloc.add(
-                  CalculateSugarEvent(
-                    sugarContent: sugarContent,
-                    targetSugar: targetSugar,
-                  ),
-                );
-
-                // Capture the result
-                bloc.stream.listen((calculatedResult) {
-                  setState(() {
-                    result = calculatedResult;
-                  });
-                });
-              },
-              child: Text('Oblicz'),
             ),
             if (result != null)
               Text('Wynik: ${result!.toStringAsFixed(2)} ml'),
