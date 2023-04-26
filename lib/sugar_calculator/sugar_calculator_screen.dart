@@ -6,10 +6,10 @@ class SugarCalculatorScreen extends StatefulWidget {
   const SugarCalculatorScreen({super.key});
 
   @override
-  _SugarCalculatorScreenState createState() => _SugarCalculatorScreenState();
+  SugarCalculatorScreenState createState() => SugarCalculatorScreenState();
 }
 
-class _SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
+class SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
   final TextEditingController sugarContentController = TextEditingController();
   final TextEditingController targetSugarController = TextEditingController();
   late SugarCalculatorBloc sugarCalculatorBloc;
