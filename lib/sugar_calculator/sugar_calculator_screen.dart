@@ -45,6 +45,10 @@ class SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
     }
   }
 
+  void toggleUnit(bool isLiquid) {
+    sugarCalculatorBloc.add(ToggleUnitEvent(isLiquid: isLiquid));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,23 +57,35 @@ class SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: BlocBuilder<SugarCalculatorBloc, double>(
+        child: BlocBuilder<SugarCalculatorBloc, SugarCalculatorState>(
           bloc: sugarCalculatorBloc,
           builder: (context, state) {
+            String unit = state.isLiquid ? 'ml' : 'g';
 
             return Column(
               children: [
                 TextField(
                   controller: sugarContentController,
                   keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(labelText: 'Cukier na 100 ml'),
+                  decoration: InputDecoration(labelText: 'Cukier na 100 $unit'),
                 ),
                 TextField(
                   controller: targetSugarController,
                   keyboardType: TextInputType.number,
                   decoration: const InputDecoration(labelText: 'Docelowa ilość cukru'),
                 ),
-                Text('Wynik: ${state.toStringAsFixed(2)} ml'),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text('Stałe'),
+                    Switch(
+                      value: state.isLiquid,
+                      onChanged: toggleUnit,
+                    ),
+                    const Text('Ciecz'),
+                  ],
+                ),
+                Text('Wynik: ${state.result.toStringAsFixed(2)} $unit'),
               ],
             );
           },
