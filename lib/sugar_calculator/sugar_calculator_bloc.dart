@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-// Define a new event
 class CalculateSugarEvent {
   final double sugarContent;
   final double targetSugar;
