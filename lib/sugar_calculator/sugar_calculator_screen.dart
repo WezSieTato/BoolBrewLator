@@ -49,10 +49,10 @@ class _SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Kalkulator Cukru'),
+        title: const Text('Kalkulator Cukru'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: BlocBuilder<SugarCalculatorBloc, double>(
           bloc: sugarCalculatorBloc,
           builder: (context, state) {
@@ -62,12 +62,12 @@ class _SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
                 TextField(
                   controller: sugarContentController,
                   keyboardType: TextInputType.number,
-                  decoration: InputDecoration(labelText: 'Cukier na 100 ml'),
+                  decoration: const InputDecoration(labelText: 'Cukier na 100 ml'),
                 ),
                 TextField(
                   controller: targetSugarController,
                   keyboardType: TextInputType.number,
-                  decoration: InputDecoration(labelText: 'Docelowa ilość cukru'),
+                  decoration: const InputDecoration(labelText: 'Docelowa ilość cukru'),
                 ),
                 Text('Wynik: ${state.toStringAsFixed(2)} ml'),
               ],
