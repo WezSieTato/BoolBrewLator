@@ -12,7 +12,6 @@ class SugarCalculatorScreen extends StatefulWidget {
 class _SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
   final TextEditingController sugarContentController = TextEditingController();
   final TextEditingController targetSugarController = TextEditingController();
-  double? result;
   late SugarCalculatorBloc sugarCalculatorBloc;
 
   @override
@@ -57,9 +56,6 @@ class _SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
         child: BlocBuilder<SugarCalculatorBloc, double>(
           bloc: sugarCalculatorBloc,
           builder: (context, state) {
-            if (state is double) {
-              result = state;
-            }
 
             return Column(
               children: [
@@ -73,8 +69,7 @@ class _SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(labelText: 'Docelowa ilość cukru'),
                 ),
-                if (result != null)
-                  Text('Wynik: ${result!.toStringAsFixed(2)} ml'),
+                Text('Wynik: ${state.toStringAsFixed(2)} ml'),
               ],
             );
           },
