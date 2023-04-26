@@ -26,7 +26,7 @@ class SugarCalculatorState extends Equatable {
 
 class SugarCalculatorBloc extends Bloc<dynamic, SugarCalculatorState> {
   SugarCalculatorBloc()
-      : super(SugarCalculatorState(result: 0, isLiquid: true)) {
+      : super(const SugarCalculatorState(result: 0, isLiquid: true)) {
     on<CalculateSugarEvent>((event, emit) {
       final result = (event.targetSugar * 100) / event.sugarContent;
       emit(SugarCalculatorState(result: result, isLiquid: state.isLiquid));
