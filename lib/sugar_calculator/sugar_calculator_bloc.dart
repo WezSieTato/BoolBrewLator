@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:equatable/equatable.dart';
 
 class CalculateSugarEvent {
   final double sugarContent;
@@ -13,11 +14,14 @@ class ToggleUnitEvent {
   ToggleUnitEvent({required this.isLiquid});
 }
 
-class SugarCalculatorState {
+class SugarCalculatorState extends Equatable {
   final double result;
   final bool isLiquid;
 
-  SugarCalculatorState({required this.result, required this.isLiquid});
+  const SugarCalculatorState({required this.result, required this.isLiquid});
+
+  @override
+  List<Object> get props => [result, isLiquid];
 }
 
 class SugarCalculatorBloc extends Bloc<dynamic, SugarCalculatorState> {
