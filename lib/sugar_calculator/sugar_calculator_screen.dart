@@ -1,3 +1,4 @@
+import 'package:boolbrewlator/sugar_calculator/sugar_calculator_info_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'sugar_calculator_bloc.dart';
@@ -72,7 +73,8 @@ class SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
                 TextField(
                   controller: targetSugarController,
                   keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(labelText: 'Docelowa ilość cukru'),
+                  decoration:
+                      const InputDecoration(labelText: 'Docelowa ilość cukru'),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -86,6 +88,8 @@ class SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
                   ],
                 ),
                 Text('Wynik: ${state.result.toStringAsFixed(2)} $unit'),
+                const SizedBox(height: 16.0),
+                const SugarCalculatorInfo(),
               ],
             );
           },
