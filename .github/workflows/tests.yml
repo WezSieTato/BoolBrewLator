@@ -19,3 +19,9 @@ jobs:
     - run: flutter pub get
     - run: flutter analyze
     - run: flutter test
+    - name: Archive golden image diffs
+      if: failure()
+      uses: actions/upload-artifact@v2
+      with:
+        name: golden-image-diffs
+        path: test/**/failures
