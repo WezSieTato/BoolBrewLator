@@ -8,10 +8,11 @@ void main() {
 
     await tester.pumpWidget(
       const MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: SugarCalculatorScreen(),
       ),
     );
 
-    await screenMatchesGolden(tester, 'sugar_calculator_screen');
+      await multiScreenGolden(tester, 'sugar_calculator_screen');
   });
 }
