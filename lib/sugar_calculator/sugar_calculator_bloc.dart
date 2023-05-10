@@ -33,7 +33,8 @@ class SugarCalculatorBloc extends Bloc<dynamic, SugarCalculatorState> {
     });
 
     on<ToggleUnitEvent>((event, emit) {
-      emit(SugarCalculatorState(result: state.result, isLiquid: event.isLiquid));
+      emit(
+          SugarCalculatorState(result: state.result, isLiquid: event.isLiquid));
     });
   }
 }
