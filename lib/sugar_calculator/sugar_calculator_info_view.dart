@@ -14,7 +14,7 @@ class SugarCalculatorInfo extends StatelessWidget {
           ),
           SizedBox(height: 8.0),
           Text(
-            'W piwowarstwie i winiarstwie kontrolowanie zawartości cukru w mieszance jest kluczowe dla osiągnięcia pożądanej zawartości alkoholu oraz smaku. Nie zawsze jednak musisz używać cukru do dosładzania. Znając zawartość cukru np. w syropie lub w suszonych owocach możesz użyć dowolnego produktu.',
+            'W piwowarstwie i winiarstwie kontrolodwanie zawartości cukru w mieszance jest kluczowe dla osiągnięcia pożądanej zawartości alkoholu oraz smaku. Nie zawsze jednak musisz używać cukru do dosładzania. Znając zawartość cukru np. w syropie lub w suszonych owocach możesz użyć dowolnego produktu.',
           ),
           SizedBox(height: 8.0),
           Text(
