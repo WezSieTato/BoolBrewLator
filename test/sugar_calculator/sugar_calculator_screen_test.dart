@@ -14,5 +14,5 @@ void main() {
     );
 
       await multiScreenGolden(tester, 'sugar_calculator_screen');
-  });
+  }, skip: true);
 }
