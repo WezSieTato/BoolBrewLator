@@ -1,3 +1,4 @@
+import 'package:boolbrewlator/components/input_number_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'alcohol_dilution_calculator_cubit.dart'; 
@@ -23,25 +24,22 @@ class _AlcoholDilutionCalculatorScreenBody extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            _buildTextField(
-              context,
-              label: 'Initial Concentration (%)',
+            InputNumberField(
+              label: 'Początkowa zawartość alkoholu (%)',
               onChanged: (value) {
                 final double? doubleValue = double.tryParse(value);
                 context.read<AlcoholDilutionCalculatorCubit>().initialConcentrationChanged(doubleValue);
               },
             ),
-            _buildTextField(
-              context,
-              label: 'Target Concentration (%)',
+            InputNumberField(
+              label: 'Docelowa zawartość alkoholu (%)',
               onChanged: (value) {
                 final double? doubleValue = double.tryParse(value);
                 context.read<AlcoholDilutionCalculatorCubit>().targetConcentrationChanged(doubleValue);
               },
             ),
-            _buildTextField(
-              context,
-              label: 'Solution Volume (ml)',
+            InputNumberField(
+              label: 'Docelowa ilość (ml)',
               onChanged: (value) {
                 final double? doubleValue = double.tryParse(value);
                 context.read<AlcoholDilutionCalculatorCubit>().solutionVolumeChanged(doubleValue);
@@ -52,8 +50,8 @@ class _AlcoholDilutionCalculatorScreenBody extends StatelessWidget {
               builder: (context, state) {
                 return Column(
                   children: [
-                    Text('Required Water: ${state.requiredWater} ml'),
-                    Text('Required Alcohol: ${state.requiredAlcohol} ml'),
+                    Text('Ilość alkoholu: ${state.requiredAlcohol} ml'),
+                    Text('Ilość wody do dolania: ${state.requiredWater} ml'),
                   ],
                 );
               },
@@ -61,17 +59,6 @@ class _AlcoholDilutionCalculatorScreenBody extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  Widget _buildTextField(BuildContext context, {required String label, required void Function(String) onChanged}) {
-    return TextField(
-      decoration: InputDecoration(
-        labelText: label,
-        border: const OutlineInputBorder(),
-      ),
-      keyboardType: TextInputType.number,
-      onChanged: onChanged,
     );
   }
 }
