@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class InputNumberField extends StatelessWidget {
-  const InputNumberField({
+class InputDoubleField extends StatelessWidget {
+  const InputDoubleField({
     Key? key,
     required this.label,
     required this.onChanged,
   }) : super(key: key);
 
   final String label;
-  final void Function(String) onChanged;
+  final void Function(double?) onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class InputNumberField extends StatelessWidget {
       decoration: InputDecoration(
         labelText: label,
       ),
-      onChanged: onChanged,
+      onChanged: (value) => onChanged(double.tryParse(value)),
     );
   }
 }

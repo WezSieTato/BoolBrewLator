@@ -1,4 +1,4 @@
-import 'package:boolbrewlator/components/input_number_field.dart';
+import 'package:boolbrewlator/components/input_double_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'alcohol_dilution_calculator_cubit.dart';
@@ -26,31 +26,28 @@ class _AlcoholDilutionCalculatorScreenBody extends StatelessWidget {
           builder: (context, state) {
             return Column(
               children: [
-                InputNumberField(
+                InputDoubleField(
                   label: 'Początkowa zawartość alkoholu (%)',
                   onChanged: (value) {
-                    final double? doubleValue = double.tryParse(value);
                     context
                         .read<AlcoholDilutionCalculatorCubit>()
-                        .initialConcentrationChanged(doubleValue);
+                        .initialConcentrationChanged(value);
                   },
                 ),
-                InputNumberField(
+                InputDoubleField(
                   label: 'Docelowa zawartość alkoholu (%)',
                   onChanged: (value) {
-                    final double? doubleValue = double.tryParse(value);
                     context
                         .read<AlcoholDilutionCalculatorCubit>()
-                        .targetConcentrationChanged(doubleValue);
+                        .targetConcentrationChanged(value);
                   },
                 ),
-                InputNumberField(
+                InputDoubleField(
                   label: 'Docelowa ilość (ml)',
                   onChanged: (value) {
-                    final double? doubleValue = double.tryParse(value);
                     context
                         .read<AlcoholDilutionCalculatorCubit>()
-                        .solutionVolumeChanged(doubleValue);
+                        .solutionVolumeChanged(value);
                   },
                 ),
                 const SizedBox(height: 16),
