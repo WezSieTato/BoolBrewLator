@@ -47,7 +47,7 @@ class _AlcoholDilutionCalculatorScreenBody extends StatelessWidget {
                 context.read<AlcoholDilutionCalculatorCubit>().solutionVolumeChanged(doubleValue);
               },
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             BlocBuilder<AlcoholDilutionCalculatorCubit, AlcoholDilutionCalculatorState>(
               builder: (context, state) {
                 return Column(

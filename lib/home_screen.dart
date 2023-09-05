@@ -21,7 +21,7 @@ class CalculatorItem {
 class _HomeScreenState extends State<HomeScreen> {
 
   final List<CalculatorItem> _calculatorItems = [
-    CalculatorItem(
+    const CalculatorItem(
       title: 'Rozcieńczanie alkoholu',
       screen: AlcoholDilutionCalculatorScreen(),
     ),
