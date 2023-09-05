@@ -8,7 +8,7 @@ class AlcoholDilutionCalculatorState with _$AlcoholDilutionCalculatorState {
     double? initialConcentration,
     double? targetConcentration,
     double? solutionVolume,
-    double? requiredWater,
-    double? requiredAlcohol,
+    double? requiredWaterVolume,
+    double? requiredAlcoholVolume,
   }) = _AlcoholDilutionCalculatorState;
 }

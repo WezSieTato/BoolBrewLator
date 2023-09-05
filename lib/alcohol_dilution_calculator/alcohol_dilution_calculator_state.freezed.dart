@@ -19,8 +19,8 @@ mixin _$AlcoholDilutionCalculatorState {
   double? get initialConcentration => throw _privateConstructorUsedError;
   double? get targetConcentration => throw _privateConstructorUsedError;
   double? get solutionVolume => throw _privateConstructorUsedError;
-  double? get requiredWater => throw _privateConstructorUsedError;
-  double? get requiredAlcohol => throw _privateConstructorUsedError;
+  double? get requiredWaterVolume => throw _privateConstructorUsedError;
+  double? get requiredAlcoholVolume => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AlcoholDilutionCalculatorStateCopyWith<AlcoholDilutionCalculatorState>
@@ -39,8 +39,8 @@ abstract class $AlcoholDilutionCalculatorStateCopyWith<$Res> {
       {double? initialConcentration,
       double? targetConcentration,
       double? solutionVolume,
-      double? requiredWater,
-      double? requiredAlcohol});
+      double? requiredWaterVolume,
+      double? requiredAlcoholVolume});
 }
 
 /// @nodoc
@@ -60,8 +60,8 @@ class _$AlcoholDilutionCalculatorStateCopyWithImpl<$Res,
     Object? initialConcentration = freezed,
     Object? targetConcentration = freezed,
     Object? solutionVolume = freezed,
-    Object? requiredWater = freezed,
-    Object? requiredAlcohol = freezed,
+    Object? requiredWaterVolume = freezed,
+    Object? requiredAlcoholVolume = freezed,
   }) {
     return _then(_value.copyWith(
       initialConcentration: freezed == initialConcentration
@@ -76,13 +76,13 @@ class _$AlcoholDilutionCalculatorStateCopyWithImpl<$Res,
           ? _value.solutionVolume
           : solutionVolume // ignore: cast_nullable_to_non_nullable
               as double?,
-      requiredWater: freezed == requiredWater
-          ? _value.requiredWater
-          : requiredWater // ignore: cast_nullable_to_non_nullable
+      requiredWaterVolume: freezed == requiredWaterVolume
+          ? _value.requiredWaterVolume
+          : requiredWaterVolume // ignore: cast_nullable_to_non_nullable
               as double?,
-      requiredAlcohol: freezed == requiredAlcohol
-          ? _value.requiredAlcohol
-          : requiredAlcohol // ignore: cast_nullable_to_non_nullable
+      requiredAlcoholVolume: freezed == requiredAlcoholVolume
+          ? _value.requiredAlcoholVolume
+          : requiredAlcoholVolume // ignore: cast_nullable_to_non_nullable
               as double?,
     ) as $Val);
   }
@@ -101,8 +101,8 @@ abstract class _$$_AlcoholDilutionCalculatorStateCopyWith<$Res>
       {double? initialConcentration,
       double? targetConcentration,
       double? solutionVolume,
-      double? requiredWater,
-      double? requiredAlcohol});
+      double? requiredWaterVolume,
+      double? requiredAlcoholVolume});
 }
 
 /// @nodoc
@@ -121,8 +121,8 @@ class __$$_AlcoholDilutionCalculatorStateCopyWithImpl<$Res>
     Object? initialConcentration = freezed,
     Object? targetConcentration = freezed,
     Object? solutionVolume = freezed,
-    Object? requiredWater = freezed,
-    Object? requiredAlcohol = freezed,
+    Object? requiredWaterVolume = freezed,
+    Object? requiredAlcoholVolume = freezed,
   }) {
     return _then(_$_AlcoholDilutionCalculatorState(
       initialConcentration: freezed == initialConcentration
@@ -137,13 +137,13 @@ class __$$_AlcoholDilutionCalculatorStateCopyWithImpl<$Res>
           ? _value.solutionVolume
           : solutionVolume // ignore: cast_nullable_to_non_nullable
               as double?,
-      requiredWater: freezed == requiredWater
-          ? _value.requiredWater
-          : requiredWater // ignore: cast_nullable_to_non_nullable
+      requiredWaterVolume: freezed == requiredWaterVolume
+          ? _value.requiredWaterVolume
+          : requiredWaterVolume // ignore: cast_nullable_to_non_nullable
               as double?,
-      requiredAlcohol: freezed == requiredAlcohol
-          ? _value.requiredAlcohol
-          : requiredAlcohol // ignore: cast_nullable_to_non_nullable
+      requiredAlcoholVolume: freezed == requiredAlcoholVolume
+          ? _value.requiredAlcoholVolume
+          : requiredAlcoholVolume // ignore: cast_nullable_to_non_nullable
               as double?,
     ));
   }
@@ -157,8 +157,8 @@ class _$_AlcoholDilutionCalculatorState
       {this.initialConcentration,
       this.targetConcentration,
       this.solutionVolume,
-      this.requiredWater,
-      this.requiredAlcohol});
+      this.requiredWaterVolume,
+      this.requiredAlcoholVolume});
 
   @override
   final double? initialConcentration;
@@ -167,13 +167,13 @@ class _$_AlcoholDilutionCalculatorState
   @override
   final double? solutionVolume;
   @override
-  final double? requiredWater;
+  final double? requiredWaterVolume;
   @override
-  final double? requiredAlcohol;
+  final double? requiredAlcoholVolume;
 
   @override
   String toString() {
-    return 'AlcoholDilutionCalculatorState(initialConcentration: $initialConcentration, targetConcentration: $targetConcentration, solutionVolume: $solutionVolume, requiredWater: $requiredWater, requiredAlcohol: $requiredAlcohol)';
+    return 'AlcoholDilutionCalculatorState(initialConcentration: $initialConcentration, targetConcentration: $targetConcentration, solutionVolume: $solutionVolume, requiredWaterVolume: $requiredWaterVolume, requiredAlcoholVolume: $requiredAlcoholVolume)';
   }
 
   @override
@@ -187,15 +187,20 @@ class _$_AlcoholDilutionCalculatorState
                 other.targetConcentration == targetConcentration) &&
             (identical(other.solutionVolume, solutionVolume) ||
                 other.solutionVolume == solutionVolume) &&
-            (identical(other.requiredWater, requiredWater) ||
-                other.requiredWater == requiredWater) &&
-            (identical(other.requiredAlcohol, requiredAlcohol) ||
-                other.requiredAlcohol == requiredAlcohol));
+            (identical(other.requiredWaterVolume, requiredWaterVolume) ||
+                other.requiredWaterVolume == requiredWaterVolume) &&
+            (identical(other.requiredAlcoholVolume, requiredAlcoholVolume) ||
+                other.requiredAlcoholVolume == requiredAlcoholVolume));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, initialConcentration,
-      targetConcentration, solutionVolume, requiredWater, requiredAlcohol);
+  int get hashCode => Object.hash(
+      runtimeType,
+      initialConcentration,
+      targetConcentration,
+      solutionVolume,
+      requiredWaterVolume,
+      requiredAlcoholVolume);
 
   @JsonKey(ignore: true)
   @override
@@ -211,8 +216,8 @@ abstract class _AlcoholDilutionCalculatorState
       {final double? initialConcentration,
       final double? targetConcentration,
       final double? solutionVolume,
-      final double? requiredWater,
-      final double? requiredAlcohol}) = _$_AlcoholDilutionCalculatorState;
+      final double? requiredWaterVolume,
+      final double? requiredAlcoholVolume}) = _$_AlcoholDilutionCalculatorState;
 
   @override
   double? get initialConcentration;
@@ -221,9 +226,9 @@ abstract class _AlcoholDilutionCalculatorState
   @override
   double? get solutionVolume;
   @override
-  double? get requiredWater;
+  double? get requiredWaterVolume;
   @override
-  double? get requiredAlcohol;
+  double? get requiredAlcoholVolume;
   @override
   @JsonKey(ignore: true)
   _$$_AlcoholDilutionCalculatorStateCopyWith<_$_AlcoholDilutionCalculatorState>

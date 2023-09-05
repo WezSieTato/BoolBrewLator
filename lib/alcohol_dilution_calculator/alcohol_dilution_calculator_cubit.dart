@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'alcohol_dilution_calculator_state.dart';
 
@@ -27,12 +28,27 @@ class AlcoholDilutionCalculatorCubit extends Cubit<AlcoholDilutionCalculatorStat
   }
 
   void _recalculate(AlcoholDilutionCalculatorState newState) {
-    const requiredWater = 410.0; // Twoje obliczenia dla potrzebnej wody tutaj, używając wartości z `newState`
-    const requiredAlcohol = 420.0; // Twoje obliczenia dla potrzebnego alkoholu tutaj, używając wartości z `newState`
+    double? initialConcentration = newState.initialConcentration;
+    double? targetConcentration = newState.targetConcentration;
+    double? solutionVolume = newState.solutionVolume;
 
-    emit(newState.copyWith(
-      requiredWater: requiredWater,
-      requiredAlcohol: requiredAlcohol
-    ));
+    if (initialConcentration != null && targetConcentration != null && solutionVolume != null) {
+      double initialAlcoholVolume = solutionVolume * (initialConcentration / 100);
+      double targetAlcoholVolume = solutionVolume * (targetConcentration / 100);
+      double contractionFactor = 1; // Przykładowa wartość, najlepiej ustalić właściwy współczynnik empirycznie lub z literatury
+
+      // Zastosowanie współczynnika kontrakcji do obliczenia docelowej objętości
+      double finalSolutionVolume = solutionVolume - (initialAlcoholVolume - targetAlcoholVolume) / contractionFactor;
+      double requiredWaterVolume = finalSolutionVolume - solutionVolume;
+
+
+      emit(newState.copyWith(
+        requiredWaterVolume: requiredWaterVolume,
+        requiredAlcoholVolume: targetAlcoholVolume,
+      ));
+    } else {
+      emit(newState);
+    }
   }
+
 }
