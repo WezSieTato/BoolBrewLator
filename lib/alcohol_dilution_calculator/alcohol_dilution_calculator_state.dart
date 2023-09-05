@@ -5,10 +5,10 @@ part 'alcohol_dilution_calculator_state.freezed.dart';
 @freezed
 class AlcoholDilutionCalculatorState with _$AlcoholDilutionCalculatorState {
   const factory AlcoholDilutionCalculatorState({
-    required double initialConcentration,
-    required double targetConcentration,
-    required double solutionVolume,
-    required double requiredWater,
-    required double requiredAlcohol,
+    double? initialConcentration,
+    double? targetConcentration,
+    double? solutionVolume,
+    double? requiredWater,
+    double? requiredAlcohol,
   }) = _AlcoholDilutionCalculatorState;
 }

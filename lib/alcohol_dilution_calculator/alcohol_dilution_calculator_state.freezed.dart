@@ -16,11 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AlcoholDilutionCalculatorState {
-  double get initialConcentration => throw _privateConstructorUsedError;
-  double get targetConcentration => throw _privateConstructorUsedError;
-  double get solutionVolume => throw _privateConstructorUsedError;
-  double get requiredWater => throw _privateConstructorUsedError;
-  double get requiredAlcohol => throw _privateConstructorUsedError;
+  double? get initialConcentration => throw _privateConstructorUsedError;
+  double? get targetConcentration => throw _privateConstructorUsedError;
+  double? get solutionVolume => throw _privateConstructorUsedError;
+  double? get requiredWater => throw _privateConstructorUsedError;
+  double? get requiredAlcohol => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AlcoholDilutionCalculatorStateCopyWith<AlcoholDilutionCalculatorState>
@@ -36,11 +36,11 @@ abstract class $AlcoholDilutionCalculatorStateCopyWith<$Res> {
           AlcoholDilutionCalculatorState>;
   @useResult
   $Res call(
-      {double initialConcentration,
-      double targetConcentration,
-      double solutionVolume,
-      double requiredWater,
-      double requiredAlcohol});
+      {double? initialConcentration,
+      double? targetConcentration,
+      double? solutionVolume,
+      double? requiredWater,
+      double? requiredAlcohol});
 }
 
 /// @nodoc
@@ -57,33 +57,33 @@ class _$AlcoholDilutionCalculatorStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? initialConcentration = null,
-    Object? targetConcentration = null,
-    Object? solutionVolume = null,
-    Object? requiredWater = null,
-    Object? requiredAlcohol = null,
+    Object? initialConcentration = freezed,
+    Object? targetConcentration = freezed,
+    Object? solutionVolume = freezed,
+    Object? requiredWater = freezed,
+    Object? requiredAlcohol = freezed,
   }) {
     return _then(_value.copyWith(
-      initialConcentration: null == initialConcentration
+      initialConcentration: freezed == initialConcentration
           ? _value.initialConcentration
           : initialConcentration // ignore: cast_nullable_to_non_nullable
-              as double,
-      targetConcentration: null == targetConcentration
+              as double?,
+      targetConcentration: freezed == targetConcentration
           ? _value.targetConcentration
           : targetConcentration // ignore: cast_nullable_to_non_nullable
-              as double,
-      solutionVolume: null == solutionVolume
+              as double?,
+      solutionVolume: freezed == solutionVolume
           ? _value.solutionVolume
           : solutionVolume // ignore: cast_nullable_to_non_nullable
-              as double,
-      requiredWater: null == requiredWater
+              as double?,
+      requiredWater: freezed == requiredWater
           ? _value.requiredWater
           : requiredWater // ignore: cast_nullable_to_non_nullable
-              as double,
-      requiredAlcohol: null == requiredAlcohol
+              as double?,
+      requiredAlcohol: freezed == requiredAlcohol
           ? _value.requiredAlcohol
           : requiredAlcohol // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ) as $Val);
   }
 }
@@ -98,11 +98,11 @@ abstract class _$$_AlcoholDilutionCalculatorStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {double initialConcentration,
-      double targetConcentration,
-      double solutionVolume,
-      double requiredWater,
-      double requiredAlcohol});
+      {double? initialConcentration,
+      double? targetConcentration,
+      double? solutionVolume,
+      double? requiredWater,
+      double? requiredAlcohol});
 }
 
 /// @nodoc
@@ -118,33 +118,33 @@ class __$$_AlcoholDilutionCalculatorStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? initialConcentration = null,
-    Object? targetConcentration = null,
-    Object? solutionVolume = null,
-    Object? requiredWater = null,
-    Object? requiredAlcohol = null,
+    Object? initialConcentration = freezed,
+    Object? targetConcentration = freezed,
+    Object? solutionVolume = freezed,
+    Object? requiredWater = freezed,
+    Object? requiredAlcohol = freezed,
   }) {
     return _then(_$_AlcoholDilutionCalculatorState(
-      initialConcentration: null == initialConcentration
+      initialConcentration: freezed == initialConcentration
           ? _value.initialConcentration
           : initialConcentration // ignore: cast_nullable_to_non_nullable
-              as double,
-      targetConcentration: null == targetConcentration
+              as double?,
+      targetConcentration: freezed == targetConcentration
           ? _value.targetConcentration
           : targetConcentration // ignore: cast_nullable_to_non_nullable
-              as double,
-      solutionVolume: null == solutionVolume
+              as double?,
+      solutionVolume: freezed == solutionVolume
           ? _value.solutionVolume
           : solutionVolume // ignore: cast_nullable_to_non_nullable
-              as double,
-      requiredWater: null == requiredWater
+              as double?,
+      requiredWater: freezed == requiredWater
           ? _value.requiredWater
           : requiredWater // ignore: cast_nullable_to_non_nullable
-              as double,
-      requiredAlcohol: null == requiredAlcohol
+              as double?,
+      requiredAlcohol: freezed == requiredAlcohol
           ? _value.requiredAlcohol
           : requiredAlcohol // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ));
   }
 }
@@ -154,22 +154,22 @@ class __$$_AlcoholDilutionCalculatorStateCopyWithImpl<$Res>
 class _$_AlcoholDilutionCalculatorState
     implements _AlcoholDilutionCalculatorState {
   const _$_AlcoholDilutionCalculatorState(
-      {required this.initialConcentration,
-      required this.targetConcentration,
-      required this.solutionVolume,
-      required this.requiredWater,
-      required this.requiredAlcohol});
+      {this.initialConcentration,
+      this.targetConcentration,
+      this.solutionVolume,
+      this.requiredWater,
+      this.requiredAlcohol});
 
   @override
-  final double initialConcentration;
+  final double? initialConcentration;
   @override
-  final double targetConcentration;
+  final double? targetConcentration;
   @override
-  final double solutionVolume;
+  final double? solutionVolume;
   @override
-  final double requiredWater;
+  final double? requiredWater;
   @override
-  final double requiredAlcohol;
+  final double? requiredAlcohol;
 
   @override
   String toString() {
@@ -208,23 +208,22 @@ class _$_AlcoholDilutionCalculatorState
 abstract class _AlcoholDilutionCalculatorState
     implements AlcoholDilutionCalculatorState {
   const factory _AlcoholDilutionCalculatorState(
-          {required final double initialConcentration,
-          required final double targetConcentration,
-          required final double solutionVolume,
-          required final double requiredWater,
-          required final double requiredAlcohol}) =
-      _$_AlcoholDilutionCalculatorState;
+      {final double? initialConcentration,
+      final double? targetConcentration,
+      final double? solutionVolume,
+      final double? requiredWater,
+      final double? requiredAlcohol}) = _$_AlcoholDilutionCalculatorState;
 
   @override
-  double get initialConcentration;
+  double? get initialConcentration;
   @override
-  double get targetConcentration;
+  double? get targetConcentration;
   @override
-  double get solutionVolume;
+  double? get solutionVolume;
   @override
-  double get requiredWater;
+  double? get requiredWater;
   @override
-  double get requiredAlcohol;
+  double? get requiredAlcohol;
   @override
   @JsonKey(ignore: true)
   _$$_AlcoholDilutionCalculatorStateCopyWith<_$_AlcoholDilutionCalculatorState>
