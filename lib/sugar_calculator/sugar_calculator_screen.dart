@@ -53,9 +53,6 @@ class SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Kalkulator Cukru'),
-      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: BlocBuilder<SugarCalculatorBloc, SugarCalculatorState>(
