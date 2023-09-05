@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'sugar_calculator/sugar_calculator_screen.dart';
+import 'home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,14 +8,17 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  static const appTitle = 'BoolBrewLator';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Kalkulator cukru',
+      title: appTitle,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SugarCalculatorScreen(),
+      // home: const SugarCalculatorScreen(),
+      home: const HomeScreen(title: appTitle),
     );
   }
 }
