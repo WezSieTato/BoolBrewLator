@@ -1,16 +1,21 @@
-# boolbrewlator
+# BoolBrewLator
 
-A new Flutter project.
+A comprehensive Flutter application designed for enthusiasts and professionals in the brewing, cider-making, wine-making, and distillation industries. This app aids users by providing essential calculators for a smooth and precise production process.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+### :candy: Sugar Syrup Weight Calculator
 
-A few resources to get you started if this is your first Flutter project:
+ Calculate the weight of syrup needed based on its sugar content
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+ ### :wrench: Work in progress :wrench:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Stay tuned for more features in the future!
+
+## Contributing
+
+Pull requests are welcome. For major changes or feature suggestions, please open an issue first to discuss what you'd like to change. You can also reach out to discuss potential features or get clarifications.
+
+## License
+
+This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more information.
