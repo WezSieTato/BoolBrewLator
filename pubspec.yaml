@@ -13,7 +13,7 @@ dependencies:
 
 
   cupertino_icons: ^1.0.8
-  flutter_bloc: ^8.1.6
+  flutter_bloc: ^9.1.0
   equatable: ^2.0.7
   
 dev_dependencies:
@@ -22,7 +22,7 @@ dev_dependencies:
 
   flutter_lints: ^2.0.0
 
-  bloc_test: ^9.1.7
+  bloc_test: ^10.0.0
   golden_toolkit: ^0.15.0
 
 
