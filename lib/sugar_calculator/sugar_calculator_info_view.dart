@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SugarCalculatorInfo extends StatelessWidget {
-  const SugarCalculatorInfo({Key? key}) : super(key: key);
+  const SugarCalculatorInfo({super.key});
 
   @override
   Widget build(BuildContext context) {
