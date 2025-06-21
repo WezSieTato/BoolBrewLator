@@ -1,6 +1,7 @@
 import 'package:boolbrewlator/sugar_calculator/sugar_calculator_info_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../i18n/translations.g.dart';
 import 'sugar_calculator_bloc.dart';
 
 class SugarCalculatorScreen extends StatefulWidget {
@@ -54,7 +55,7 @@ class SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Kalkulator Cukru'),
+        title: Text(context.t.app.title),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -62,32 +63,39 @@ class SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
           bloc: sugarCalculatorBloc,
           builder: (context, state) {
             String unit = state.isLiquid ? 'ml' : 'g';
+            var translations = context.t.sugar_calculator.calculator;
 
             return Column(
               children: [
                 TextField(
                   controller: sugarContentController,
                   keyboardType: TextInputType.number,
-                  decoration: InputDecoration(labelText: 'Cukier na 100 $unit'),
+                  decoration: InputDecoration(
+                    labelText: translations.sugar_per_100(unit: unit),
+                  ),
                 ),
                 TextField(
                   controller: targetSugarController,
                   keyboardType: TextInputType.number,
-                  decoration:
-                      const InputDecoration(labelText: 'Docelowa ilość cukru'),
+                  decoration: InputDecoration(
+                    labelText: translations.target_sugar_amount,
+                  ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text('Stałe'),
+                    Text(translations.solid),
                     Switch(
                       value: state.isLiquid,
                       onChanged: toggleUnit,
                     ),
-                    const Text('Ciecz'),
+                    Text(translations.liquid),
                   ],
                 ),
-                Text('Wynik: ${state.result.toStringAsFixed(2)} $unit'),
+                Text(translations.result(
+                  value: state.result.toStringAsFixed(2),
+                  unit: unit,
+                )),
                 const SizedBox(height: 16.0),
                 const SugarCalculatorInfo(),
               ],

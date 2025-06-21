@@ -10,11 +10,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
 
   cupertino_icons: ^1.0.8
   flutter_bloc: ^9.1.1
   equatable: ^2.0.7
+  slang: ^3.32.0
+  slang_flutter: ^3.32.0
   
 dev_dependencies:
   flutter_test:
@@ -24,6 +28,7 @@ dev_dependencies:
 
   bloc_test: ^10.0.0
   golden_toolkit: ^0.15.0
+  slang_build_runner: ^3.32.0
 
 
 flutter:
