@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../i18n/translations.g.dart';
+import '../design_system/design_system.dart';
 
 class SugarCalculatorInfo extends StatelessWidget {
   const SugarCalculatorInfo({super.key});
@@ -12,24 +13,33 @@ class SugarCalculatorInfo extends StatelessWidget {
         children: [
           Text(
             translations.title,
-            style: const TextStyle(fontWeight: FontWeight.bold),
+            style: AppTypography.heading3,
           ),
-          const SizedBox(height: 8.0),
-          Text(translations.description),
-          const SizedBox(height: 8.0),
+          SizedBox(height: Spacing.itemSpacing),
+          Text(
+            translations.description,
+            style: AppTypography.bodyMedium,
+          ),
+          SizedBox(height: Spacing.sectionSpacing),
           Text(
             translations.brewers.title,
-            style: const TextStyle(fontWeight: FontWeight.bold),
+            style: AppTypography.heading3,
           ),
-          const SizedBox(height: 8.0),
-          Text(translations.description),
-          const SizedBox(height: 8.0),
+          SizedBox(height: Spacing.itemSpacing),
+          Text(
+            translations.description,
+            style: AppTypography.bodyMedium,
+          ),
+          SizedBox(height: Spacing.sectionSpacing),
           Text(
             translations.winemakers.title,
-            style: const TextStyle(fontWeight: FontWeight.bold),
+            style: AppTypography.heading3,
           ),
-          const SizedBox(height: 8.0),
-          Text(translations.winemakers.description),
+          SizedBox(height: Spacing.itemSpacing),
+          Text(
+            translations.winemakers.description,
+            style: AppTypography.bodyMedium,
+          ),
         ],
       ),
     );

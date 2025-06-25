@@ -2,6 +2,7 @@ import 'package:boolbrewlator/sugar_calculator/sugar_calculator_info_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../i18n/translations.g.dart';
+import '../design_system/design_system.dart';
 import 'sugar_calculator_bloc.dart';
 
 class SugarCalculatorScreen extends StatefulWidget {
@@ -58,7 +59,7 @@ class SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
         title: Text(context.t.app.title),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(Spacing.screenPadding),
         child: BlocBuilder<SugarCalculatorBloc, SugarCalculatorState>(
           bloc: sugarCalculatorBloc,
           builder: (context, state) {
@@ -72,31 +73,55 @@ class SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     labelText: translations.sugar_per_100(unit: unit),
+                    contentPadding: EdgeInsets.all(Spacing.inputPadding),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(AppBorderRadius.input),
+                    ),
                   ),
                 ),
+                SizedBox(height: Spacing.itemSpacing),
                 TextField(
                   controller: targetSugarController,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     labelText: translations.target_sugar_amount,
+                    contentPadding: EdgeInsets.all(Spacing.inputPadding),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(AppBorderRadius.input),
+                    ),
                   ),
                 ),
+                SizedBox(height: Spacing.sectionSpacing),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(translations.solid),
+                    Text(
+                      translations.solid,
+                      style: AppTypography.bodyMedium,
+                    ),
+                    SizedBox(width: Spacing.iconSpacing),
                     Switch(
                       value: state.isLiquid,
                       onChanged: toggleUnit,
                     ),
-                    Text(translations.liquid),
+                    SizedBox(width: Spacing.iconSpacing),
+                    Text(
+                      translations.liquid,
+                      style: AppTypography.bodyMedium,
+                    ),
                   ],
                 ),
-                Text(translations.result(
-                  value: state.result.toStringAsFixed(2),
-                  unit: unit,
-                )),
-                const SizedBox(height: 16.0),
+                SizedBox(height: Spacing.sectionSpacing),
+                Text(
+                  translations.result(
+                    value: state.result.toStringAsFixed(2),
+                    unit: unit,
+                  ),
+                  style: AppTypography.heading2.copyWith(
+                    color: AppColors.primary,
+                  ),
+                ),
+                SizedBox(height: Spacing.sectionSpacing),
                 const SugarCalculatorInfo(),
               ],
             );
