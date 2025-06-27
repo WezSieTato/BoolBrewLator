@@ -37,15 +37,13 @@ class AppTypography {
   );
 
   static const TextStyle heading2 = TextStyle(
-    fontSize: fontSizeXxl,
-    fontWeight: semiBold,
-    fontFamily: fontFamily,
+    fontSize: 20.0,
+    fontWeight: FontWeight.w600,
   );
 
   static const TextStyle heading3 = TextStyle(
-    fontSize: fontSizeXl,
-    fontWeight: medium,
-    fontFamily: fontFamily,
+    fontSize: 18.0,
+    fontWeight: FontWeight.w500,
   );
 
   static const TextStyle bodyLarge = TextStyle(
@@ -55,9 +53,8 @@ class AppTypography {
   );
 
   static const TextStyle bodyMedium = TextStyle(
-    fontSize: fontSizeMd,
-    fontWeight: regular,
-    fontFamily: fontFamily,
+    fontSize: 14.0,
+    fontWeight: FontWeight.w400,
   );
 
   static const TextStyle bodySmall = TextStyle(

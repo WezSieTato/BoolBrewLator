@@ -59,7 +59,7 @@ class SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
         title: Text(context.t.app.title),
       ),
       body: Padding(
-        padding: EdgeInsets.all(Spacing.screenPadding),
+        padding: EdgeInsets.all(Spacing.medium),
         child: BlocBuilder<SugarCalculatorBloc, SugarCalculatorState>(
           bloc: sugarCalculatorBloc,
           builder: (context, state) {
@@ -73,25 +73,25 @@ class SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     labelText: translations.sugar_per_100(unit: unit),
-                    contentPadding: EdgeInsets.all(Spacing.inputPadding),
+                    contentPadding: EdgeInsets.all(Spacing.small),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(AppBorderRadius.input),
                     ),
                   ),
                 ),
-                SizedBox(height: Spacing.itemSpacing),
+                SizedBox(height: Spacing.small),
                 TextField(
                   controller: targetSugarController,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     labelText: translations.target_sugar_amount,
-                    contentPadding: EdgeInsets.all(Spacing.inputPadding),
+                    contentPadding: EdgeInsets.all(Spacing.small),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(AppBorderRadius.input),
                     ),
                   ),
                 ),
-                SizedBox(height: Spacing.sectionSpacing),
+                SizedBox(height: Spacing.large),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -99,19 +99,19 @@ class SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
                       translations.solid,
                       style: AppTypography.bodyMedium,
                     ),
-                    SizedBox(width: Spacing.iconSpacing),
+                    SizedBox(width: Spacing.small),
                     Switch(
                       value: state.isLiquid,
                       onChanged: toggleUnit,
                     ),
-                    SizedBox(width: Spacing.iconSpacing),
+                    SizedBox(width: Spacing.small),
                     Text(
                       translations.liquid,
                       style: AppTypography.bodyMedium,
                     ),
                   ],
                 ),
-                SizedBox(height: Spacing.sectionSpacing),
+                SizedBox(height: Spacing.large),
                 Text(
                   translations.result(
                     value: state.result.toStringAsFixed(2),
@@ -121,7 +121,7 @@ class SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
                     color: AppColors.primary,
                   ),
                 ),
-                SizedBox(height: Spacing.sectionSpacing),
+                SizedBox(height: Spacing.large),
                 const SugarCalculatorInfo(),
               ],
             );

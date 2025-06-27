@@ -15,27 +15,27 @@ class SugarCalculatorInfo extends StatelessWidget {
             translations.title,
             style: AppTypography.heading3,
           ),
-          SizedBox(height: Spacing.itemSpacing),
+          SizedBox(height: Spacing.small),
           Text(
             translations.description,
             style: AppTypography.bodyMedium,
           ),
-          SizedBox(height: Spacing.sectionSpacing),
+          SizedBox(height: Spacing.large),
           Text(
             translations.brewers.title,
             style: AppTypography.heading3,
           ),
-          SizedBox(height: Spacing.itemSpacing),
+          SizedBox(height: Spacing.small),
           Text(
             translations.description,
             style: AppTypography.bodyMedium,
           ),
-          SizedBox(height: Spacing.sectionSpacing),
+          SizedBox(height: Spacing.large),
           Text(
             translations.winemakers.title,
             style: AppTypography.heading3,
           ),
-          SizedBox(height: Spacing.itemSpacing),
+          SizedBox(height: Spacing.small),
           Text(
             translations.winemakers.description,
             style: AppTypography.bodyMedium,

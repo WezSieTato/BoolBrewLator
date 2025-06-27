@@ -33,15 +33,15 @@ class MyApp extends StatelessWidget {
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(AppBorderRadius.input),
             ),
-            contentPadding: EdgeInsets.all(Spacing.inputPadding),
+            contentPadding: EdgeInsets.all(Spacing.small),
           ),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.primary,
               foregroundColor: AppColors.surface,
               padding: EdgeInsets.symmetric(
-                horizontal: Spacing.buttonPadding * 2,
-                vertical: Spacing.buttonPadding,
+                horizontal: Spacing.medium,
+                vertical: Spacing.small,
               ),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(AppBorderRadius.button),
