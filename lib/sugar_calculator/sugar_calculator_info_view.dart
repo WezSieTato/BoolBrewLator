@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../i18n/translations.g.dart';
+import '../design_system/design_system.dart';
 
 class SugarCalculatorInfo extends StatelessWidget {
   const SugarCalculatorInfo({super.key});
@@ -7,31 +8,39 @@ class SugarCalculatorInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var translations = context.t.sugar_calculator.info;
-    return Expanded(
-      child: ListView(
-        children: [
-          Text(
-            translations.title,
-            style: const TextStyle(fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 8.0),
-          Text(translations.description),
-          const SizedBox(height: 8.0),
-          Text(
-            translations.brewers.title,
-            style: const TextStyle(fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 8.0),
-          Text(translations.description),
-          const SizedBox(height: 8.0),
-          Text(
-            translations.winemakers.title,
-            style: const TextStyle(fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 8.0),
-          Text(translations.winemakers.description),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          translations.title,
+          style: AppTypography.heading3,
+        ),
+        SizedBox(height: Spacing.small),
+        Text(
+          translations.description,
+          style: AppTypography.bodyMedium,
+        ),
+        SizedBox(height: Spacing.large),
+        Text(
+          translations.brewers.title,
+          style: AppTypography.heading3,
+        ),
+        SizedBox(height: Spacing.small),
+        Text(
+          translations.description,
+          style: AppTypography.bodyMedium,
+        ),
+        SizedBox(height: Spacing.large),
+        Text(
+          translations.winemakers.title,
+          style: AppTypography.heading3,
+        ),
+        SizedBox(height: Spacing.small),
+        Text(
+          translations.winemakers.description,
+          style: AppTypography.bodyMedium,
+        ),
+      ],
     );
   }
 }
