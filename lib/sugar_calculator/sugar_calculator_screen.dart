@@ -66,64 +66,66 @@ class SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
             String unit = state.isLiquid ? 'ml' : 'g';
             var translations = context.t.sugar_calculator.calculator;
 
-            return Column(
-              children: [
-                TextField(
-                  controller: sugarContentController,
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                    labelText: translations.sugar_per_100(unit: unit),
-                    contentPadding: EdgeInsets.all(Spacing.small),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(AppBorderRadius.input),
+            return SingleChildScrollView(
+              child: Column(
+                children: [
+                  TextField(
+                    controller: sugarContentController,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      labelText: translations.sugar_per_100(unit: unit),
+                      contentPadding: EdgeInsets.all(Spacing.small),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(AppBorderRadius.input),
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(height: Spacing.small),
-                TextField(
-                  controller: targetSugarController,
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                    labelText: translations.target_sugar_amount,
-                    contentPadding: EdgeInsets.all(Spacing.small),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(AppBorderRadius.input),
+                  SizedBox(height: Spacing.small),
+                  TextField(
+                    controller: targetSugarController,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      labelText: translations.target_sugar_amount,
+                      contentPadding: EdgeInsets.all(Spacing.small),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(AppBorderRadius.input),
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(height: Spacing.large),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      translations.solid,
-                      style: AppTypography.bodyMedium,
-                    ),
-                    SizedBox(width: Spacing.small),
-                    Switch(
-                      value: state.isLiquid,
-                      onChanged: toggleUnit,
-                    ),
-                    SizedBox(width: Spacing.small),
-                    Text(
-                      translations.liquid,
-                      style: AppTypography.bodyMedium,
-                    ),
-                  ],
-                ),
-                SizedBox(height: Spacing.large),
-                Text(
-                  translations.result(
-                    value: state.result.toStringAsFixed(2),
-                    unit: unit,
+                  SizedBox(height: Spacing.large),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        translations.solid,
+                        style: AppTypography.bodyMedium,
+                      ),
+                      SizedBox(width: Spacing.small),
+                      Switch(
+                        value: state.isLiquid,
+                        onChanged: toggleUnit,
+                      ),
+                      SizedBox(width: Spacing.small),
+                      Text(
+                        translations.liquid,
+                        style: AppTypography.bodyMedium,
+                      ),
+                    ],
                   ),
-                  style: AppTypography.heading2.copyWith(
-                    color: AppColors.primary,
+                  SizedBox(height: Spacing.large),
+                  Text(
+                    translations.result(
+                      value: state.result.toStringAsFixed(2),
+                      unit: unit,
+                    ),
+                    style: AppTypography.heading2.copyWith(
+                      color: AppColors.primary,
+                    ),
                   ),
-                ),
-                SizedBox(height: Spacing.large),
-                const SugarCalculatorInfo(),
-              ],
+                  SizedBox(height: Spacing.large),
+                  const SugarCalculatorInfo(),
+                ],
+              ),
             );
           },
         ),

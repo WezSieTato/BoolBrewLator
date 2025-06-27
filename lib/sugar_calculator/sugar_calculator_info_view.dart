@@ -8,40 +8,39 @@ class SugarCalculatorInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var translations = context.t.sugar_calculator.info;
-    return Expanded(
-      child: ListView(
-        children: [
-          Text(
-            translations.title,
-            style: AppTypography.heading3,
-          ),
-          SizedBox(height: Spacing.small),
-          Text(
-            translations.description,
-            style: AppTypography.bodyMedium,
-          ),
-          SizedBox(height: Spacing.large),
-          Text(
-            translations.brewers.title,
-            style: AppTypography.heading3,
-          ),
-          SizedBox(height: Spacing.small),
-          Text(
-            translations.description,
-            style: AppTypography.bodyMedium,
-          ),
-          SizedBox(height: Spacing.large),
-          Text(
-            translations.winemakers.title,
-            style: AppTypography.heading3,
-          ),
-          SizedBox(height: Spacing.small),
-          Text(
-            translations.winemakers.description,
-            style: AppTypography.bodyMedium,
-          ),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          translations.title,
+          style: AppTypography.heading3,
+        ),
+        SizedBox(height: Spacing.small),
+        Text(
+          translations.description,
+          style: AppTypography.bodyMedium,
+        ),
+        SizedBox(height: Spacing.large),
+        Text(
+          translations.brewers.title,
+          style: AppTypography.heading3,
+        ),
+        SizedBox(height: Spacing.small),
+        Text(
+          translations.description,
+          style: AppTypography.bodyMedium,
+        ),
+        SizedBox(height: Spacing.large),
+        Text(
+          translations.winemakers.title,
+          style: AppTypography.heading3,
+        ),
+        SizedBox(height: Spacing.small),
+        Text(
+          translations.winemakers.description,
+          style: AppTypography.bodyMedium,
+        ),
+      ],
     );
   }
 }
