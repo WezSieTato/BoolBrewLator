@@ -6,9 +6,9 @@ import 'sugar_calculator/sugar_calculator_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   LocaleSettings.useDeviceLocale();
-  
+
   runApp(const MyApp());
 }
 

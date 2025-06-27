@@ -76,7 +76,8 @@ class SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
                       labelText: translations.sugar_per_100(unit: unit),
                       contentPadding: EdgeInsets.all(Spacing.small),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(AppBorderRadius.input),
+                        borderRadius:
+                            BorderRadius.circular(AppBorderRadius.input),
                       ),
                     ),
                   ),
@@ -88,7 +89,8 @@ class SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
                       labelText: translations.target_sugar_amount,
                       contentPadding: EdgeInsets.all(Spacing.small),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(AppBorderRadius.input),
+                        borderRadius:
+                            BorderRadius.circular(AppBorderRadius.input),
                       ),
                     ),
                   ),
