@@ -15,12 +15,10 @@ class SugarCalculatorScreen extends StatefulWidget {
 class SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
   final TextEditingController sugarContentController = TextEditingController();
   final TextEditingController targetSugarController = TextEditingController();
-  late SugarCalculatorBloc sugarCalculatorBloc;
 
   @override
   void initState() {
     super.initState();
-    sugarCalculatorBloc = SugarCalculatorBloc();
     sugarContentController.addListener(calculate);
     targetSugarController.addListener(calculate);
   }
@@ -29,7 +27,6 @@ class SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
   void dispose() {
     sugarContentController.dispose();
     targetSugarController.dispose();
-    sugarCalculatorBloc.close();
     super.dispose();
   }
 
@@ -39,7 +36,7 @@ class SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
       double sugarContent = double.parse(sugarContentController.text);
       double targetSugar = double.parse(targetSugarController.text);
 
-      sugarCalculatorBloc.add(
+      context.read<SugarCalculatorBloc>().add(
         CalculateSugarEvent(
           sugarContent: sugarContent,
           targetSugar: targetSugar,
@@ -49,7 +46,7 @@ class SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
   }
 
   void toggleUnit(bool isLiquid) {
-    sugarCalculatorBloc.add(ToggleUnitEvent(isLiquid: isLiquid));
+    context.read<SugarCalculatorBloc>().add(ToggleUnitEvent(isLiquid: isLiquid));
   }
 
   @override
@@ -61,7 +58,6 @@ class SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
       body: Padding(
         padding: EdgeInsets.all(Spacing.medium),
         child: BlocBuilder<SugarCalculatorBloc, SugarCalculatorState>(
-          bloc: sugarCalculatorBloc,
           builder: (context, state) {
             String unit = state.isLiquid ? 'ml' : 'g';
             var translations = context.t.sugar_calculator.calculator;
