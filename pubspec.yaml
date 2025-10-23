@@ -17,7 +17,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_bloc: ^9.1.1
   equatable: ^2.0.7
-  slang: ^4.9.0
+  slang: ^4.9.2
   slang_flutter: ^4.7.0
   
 dev_dependencies:
