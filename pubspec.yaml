@@ -18,7 +18,7 @@ dependencies:
   flutter_bloc: ^9.1.1
   equatable: ^2.0.7
   slang: ^4.9.0
-  slang_flutter: ^4.7.0
+  slang_flutter: ^4.10.0
   
 dev_dependencies:
   flutter_test:
