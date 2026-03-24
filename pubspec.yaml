@@ -13,6 +13,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
+
   cupertino_icons: ^1.0.8
   flutter_bloc: ^9.1.1
   equatable: ^2.0.8
@@ -28,6 +29,7 @@ dev_dependencies:
   bloc_test: ^10.0.0
   golden_toolkit: ^0.15.0
   slang_build_runner: ^4.8.0
+
 
 flutter:
   uses-material-design: true
