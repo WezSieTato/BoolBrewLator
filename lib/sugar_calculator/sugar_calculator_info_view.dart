@@ -1,41 +1,46 @@
 import 'package:flutter/material.dart';
+import '../i18n/translations.g.dart';
+import '../design_system/design_system.dart';
 
 class SugarCalculatorInfo extends StatelessWidget {
-  const SugarCalculatorInfo({Key? key}) : super(key: key);
+  const SugarCalculatorInfo({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView(
-        children: const [
-          Text(
-            'Informacje o zastosowaniach obliczeń w piwowarstwie lub winiarstwie:',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 8.0),
-          Text(
-            'W piwowarstwie i winiarstwie kontrolodwanie zawartości cukru w mieszance jest kluczowe dla osiągnięcia pożądanej zawartości alkoholu oraz smaku. Nie zawsze jednak musisz używać cukru do dosładzania. Znając zawartość cukru np. w syropie lub w suszonych owocach możesz użyć dowolnego produktu.',
-          ),
-          SizedBox(height: 8.0),
-          Text(
-            'Dla piwowarów:',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 8.0),
-          Text(
-            'Możesz użyć tego kalkulatora, aby pomóc w obliczeniu ilości surowca potrzebnego do dodania do refermantacji, aby osiągnąć pożądaną zawartość gazu w piwie.',
-          ),
-          SizedBox(height: 8.0),
-          Text(
-            'Dla winiarzy:',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 8.0),
-          Text(
-            'Ten kalkulator może pomóc Ci obliczyć ilość np. syropu potrzebnego do dodania do moszczu przed fermentacją, aby uzyskać pożądaną zawartość alkoholu w winie.',
-          ),
-        ],
-      ),
+    var translations = context.t.sugar_calculator.info;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          translations.title,
+          style: AppTypography.heading3,
+        ),
+        SizedBox(height: Spacing.small),
+        Text(
+          translations.description,
+          style: AppTypography.bodyMedium,
+        ),
+        SizedBox(height: Spacing.large),
+        Text(
+          translations.brewers.title,
+          style: AppTypography.heading3,
+        ),
+        SizedBox(height: Spacing.small),
+        Text(
+          translations.description,
+          style: AppTypography.bodyMedium,
+        ),
+        SizedBox(height: Spacing.large),
+        Text(
+          translations.winemakers.title,
+          style: AppTypography.heading3,
+        ),
+        SizedBox(height: Spacing.small),
+        Text(
+          translations.winemakers.description,
+          style: AppTypography.bodyMedium,
+        ),
+      ],
     );
   }
 }

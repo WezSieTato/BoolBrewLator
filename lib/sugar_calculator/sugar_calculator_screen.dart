@@ -1,6 +1,8 @@
 import 'package:boolbrewlator/sugar_calculator/sugar_calculator_info_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../i18n/translations.g.dart';
+import '../design_system/design_system.dart';
 import 'sugar_calculator_bloc.dart';
 
 class SugarCalculatorScreen extends StatefulWidget {
@@ -13,12 +15,10 @@ class SugarCalculatorScreen extends StatefulWidget {
 class SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
   final TextEditingController sugarContentController = TextEditingController();
   final TextEditingController targetSugarController = TextEditingController();
-  late SugarCalculatorBloc sugarCalculatorBloc;
 
   @override
   void initState() {
     super.initState();
-    sugarCalculatorBloc = SugarCalculatorBloc();
     sugarContentController.addListener(calculate);
     targetSugarController.addListener(calculate);
   }
@@ -27,7 +27,6 @@ class SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
   void dispose() {
     sugarContentController.dispose();
     targetSugarController.dispose();
-    sugarCalculatorBloc.close();
     super.dispose();
   }
 
@@ -37,7 +36,7 @@ class SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
       double sugarContent = double.parse(sugarContentController.text);
       double targetSugar = double.parse(targetSugarController.text);
 
-      sugarCalculatorBloc.add(
+      context.read<SugarCalculatorBloc>().add(
         CalculateSugarEvent(
           sugarContent: sugarContent,
           targetSugar: targetSugar,
@@ -47,47 +46,84 @@ class SugarCalculatorScreenState extends State<SugarCalculatorScreen> {
   }
 
   void toggleUnit(bool isLiquid) {
-    sugarCalculatorBloc.add(ToggleUnitEvent(isLiquid: isLiquid));
+    context.read<SugarCalculatorBloc>().add(ToggleUnitEvent(isLiquid: isLiquid));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(context.t.app.title),
+      ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(Spacing.medium),
         child: BlocBuilder<SugarCalculatorBloc, SugarCalculatorState>(
-          bloc: sugarCalculatorBloc,
           builder: (context, state) {
             String unit = state.isLiquid ? 'ml' : 'g';
+            var translations = context.t.sugar_calculator.calculator;
 
-            return Column(
-              children: [
-                TextField(
-                  controller: sugarContentController,
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(labelText: 'Cukier na 100 $unit'),
-                ),
-                TextField(
-                  controller: targetSugarController,
-                  keyboardType: TextInputType.number,
-                  decoration:
-                      const InputDecoration(labelText: 'Docelowa ilość cukru'),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text('Stałe'),
-                    Switch(
-                      value: state.isLiquid,
-                      onChanged: toggleUnit,
+            return SingleChildScrollView(
+              child: Column(
+                children: [
+                  TextField(
+                    controller: sugarContentController,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      labelText: translations.sugar_per_100(unit: unit),
+                      contentPadding: EdgeInsets.all(Spacing.small),
+                      border: OutlineInputBorder(
+                        borderRadius:
+                            BorderRadius.circular(AppBorderRadius.input),
+                      ),
                     ),
-                    const Text('Ciecz'),
-                  ],
-                ),
-                Text('Wynik: ${state.result.toStringAsFixed(2)} $unit'),
-                const SizedBox(height: 16.0),
-                const SugarCalculatorInfo(),
-              ],
+                  ),
+                  SizedBox(height: Spacing.small),
+                  TextField(
+                    controller: targetSugarController,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      labelText: translations.target_sugar_amount,
+                      contentPadding: EdgeInsets.all(Spacing.small),
+                      border: OutlineInputBorder(
+                        borderRadius:
+                            BorderRadius.circular(AppBorderRadius.input),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: Spacing.large),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        translations.solid,
+                        style: AppTypography.bodyMedium,
+                      ),
+                      SizedBox(width: Spacing.small),
+                      Switch(
+                        value: state.isLiquid,
+                        onChanged: toggleUnit,
+                      ),
+                      SizedBox(width: Spacing.small),
+                      Text(
+                        translations.liquid,
+                        style: AppTypography.bodyMedium,
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: Spacing.large),
+                  Text(
+                    translations.result(
+                      value: state.result.toStringAsFixed(2),
+                      unit: unit,
+                    ),
+                    style: AppTypography.heading2.copyWith(
+                      color: AppColors.primary,
+                    ),
+                  ),
+                  SizedBox(height: Spacing.large),
+                  const SugarCalculatorInfo(),
+                ],
+              ),
             );
           },
         ),
