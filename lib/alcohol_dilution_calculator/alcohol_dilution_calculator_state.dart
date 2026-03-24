@@ -1,14 +1,42 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:equatable/equatable.dart';
 
-part 'alcohol_dilution_calculator_state.freezed.dart';
+class AlcoholDilutionCalculatorState extends Equatable {
+  final double? initialConcentration;
+  final double? targetConcentration;
+  final double? solutionVolume;
+  final double? requiredWaterVolume;
+  final double? requiredAlcoholVolume;
 
-@freezed
-class AlcoholDilutionCalculatorState with _$AlcoholDilutionCalculatorState {
-  const factory AlcoholDilutionCalculatorState({
+  const AlcoholDilutionCalculatorState({
+    this.initialConcentration,
+    this.targetConcentration,
+    this.solutionVolume,
+    this.requiredWaterVolume,
+    this.requiredAlcoholVolume,
+  });
+
+  AlcoholDilutionCalculatorState copyWith({
     double? initialConcentration,
     double? targetConcentration,
     double? solutionVolume,
     double? requiredWaterVolume,
     double? requiredAlcoholVolume,
-  }) = _AlcoholDilutionCalculatorState;
+  }) {
+    return AlcoholDilutionCalculatorState(
+      initialConcentration: initialConcentration ?? this.initialConcentration,
+      targetConcentration: targetConcentration ?? this.targetConcentration,
+      solutionVolume: solutionVolume ?? this.solutionVolume,
+      requiredWaterVolume: requiredWaterVolume ?? this.requiredWaterVolume,
+      requiredAlcoholVolume: requiredAlcoholVolume ?? this.requiredAlcoholVolume,
+    );
+  }
+
+  @override
+  List<Object?> get props => [
+        initialConcentration,
+        targetConcentration,
+        solutionVolume,
+        requiredWaterVolume,
+        requiredAlcoholVolume,
+      ];
 }
