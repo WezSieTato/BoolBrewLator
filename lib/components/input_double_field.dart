@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class InputDoubleField extends StatelessWidget {
   const InputDoubleField({
-    Key? key,
+    super.key,
     required this.label,
     required this.onChanged,
-  }) : super(key: key);
+  });
 
   final String label;
   final void Function(double?) onChanged;
