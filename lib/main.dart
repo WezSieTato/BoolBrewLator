@@ -3,8 +3,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'i18n/translations.g.dart';
 import 'design_system/design_system.dart';
-import 'sugar_calculator/sugar_calculator_screen.dart';
 import 'sugar_calculator/sugar_calculator_bloc.dart';
+import 'home_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +16,8 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
+  static const appTitle = 'BoolBrewLator';
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +55,7 @@ class MyApp extends StatelessWidget {
         ),
         home: BlocProvider(
           create: (context) => SugarCalculatorBloc(),
-          child: const SugarCalculatorScreen(),
+          child: const HomeScreen(title: appTitle),
         ),
         localizationsDelegates: const [
           GlobalMaterialLocalizations.delegate,
